@@ -1,0 +1,203 @@
+/* =========================================================
+   BORDADURÍA INTERNACIONAL J&M
+   WHATSAPP.CSS
+========================================================= */
+
+/* =========================================================
+   BOTÓN FLOTANTE
+========================================================= */
+
+.whatsapp-float {
+  position: fixed;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  z-index: 999;
+
+  width: 60px;
+
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: var(--color-verde);
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.whatsapp-float img {
+  width: 31px;
+
+  height: 31px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.whatsapp-float:hover {
+  background-color: #3d8448;
+
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   EFECTO DE PULSO
+========================================================= */
+
+.whatsapp-float::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border: 2px solid rgba(75, 155, 87, 0.35);
+
+  border-radius: 50%;
+
+  animation: whatsapp-pulse 2.2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(0.9);
+
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.25);
+
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.25);
+
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+.whatsapp-float::after {
+  content: "Escríbenos por WhatsApp";
+
+  position: absolute;
+
+  right: 75px;
+
+  top: 50%;
+
+  transform: translateY(-50%) translateX(10px);
+
+  width: max-content;
+
+  padding: 8px 13px;
+
+  border-radius: 5px;
+
+  color: var(--color-blanco);
+
+  background-color: var(--color-morado-oscuro);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* Mostrar tooltip */
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(-50%) translateX(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    right: 18px;
+
+    bottom: 18px;
+
+    width: 56px;
+
+    height: 56px;
+  }
+
+  .whatsapp-float img {
+    width: 28px;
+
+    height: 28px;
+  }
+
+  /*
+       En celular no mostramos el tooltip porque
+       ocupa espacio innecesario.
+    */
+
+  .whatsapp-float::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    right: 15px;
+
+    bottom: 15px;
+
+    width: 53px;
+
+    height: 53px;
+  }
+
+  .whatsapp-float img {
+    width: 26px;
+
+    height: 26px;
+  }
+}

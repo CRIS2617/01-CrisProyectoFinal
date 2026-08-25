@@ -1,0 +1,840 @@
+/* =========================================================
+   BORDADURÍA INTERNACIONAL J&M
+   PRODUCTOS.CSS
+
+   Diseño MOBILE-FIRST
+
+   Este archivo controla:
+   - Información de productos
+   - Medidas / tamaños
+   - Colores disponibles
+   - Tarjetas de colores
+   - Estados seleccionados
+   - Información adicional
+========================================================= */
+
+/* =========================================================
+   INFORMACIÓN GENERAL DEL PRODUCTO
+========================================================= */
+
+.producto-info {
+  width: 100%;
+
+  margin: 0;
+}
+
+/* =========================================================
+   ETIQUETA DEL PRODUCTO
+========================================================= */
+
+.producto-info__categoria {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: var(--color-dorado);
+}
+
+/* =========================================================
+   NOMBRE DEL PRODUCTO
+========================================================= */
+
+.producto-info__titulo {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 38px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.producto-info__descripcion {
+  margin: 15px 0 0;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   BLOQUE DE INFORMACIÓN
+========================================================= */
+
+.producto-bloque {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(66, 36, 91, 0.1);
+}
+
+.producto-bloque__titulo {
+  margin: 0 0 15px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   SELECCIÓN DE MODELOS
+========================================================= */
+
+.modelos {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+/* =========================================================
+   BOTÓN DE MODELO
+========================================================= */
+
+.modelo-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 10px;
+
+  border: 1px solid rgba(66, 36, 91, 0.18);
+
+  border-radius: 3px;
+
+  background-color: var(--color-blanco);
+
+  color: var(--color-morado-oscuro);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.modelo-button:hover {
+  border-color: var(--color-morado);
+
+  color: var(--color-morado);
+}
+
+.modelo-button:active {
+  transform: scale(0.97);
+}
+
+.modelo-button.active {
+  border-color: var(--color-morado);
+
+  background-color: var(--color-morado);
+
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   MEDIDAS
+========================================================= */
+
+.medidas {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 9px;
+}
+
+/* =========================================================
+   BOTÓN DE MEDIDA
+========================================================= */
+
+.medidas button {
+  min-height: 45px;
+
+  padding: 10px;
+
+  border: 1px solid rgba(66, 36, 91, 0.18);
+
+  border-radius: 3px;
+
+  background-color: var(--color-blanco);
+
+  color: var(--color-morado-oscuro);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.medidas button:hover {
+  border-color: var(--color-morado);
+
+  color: var(--color-morado);
+}
+
+.medidas button.active {
+  border-color: var(--color-morado);
+
+  background-color: var(--color-morado);
+
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   CONTENEDOR DE COLORES
+========================================================= */
+
+.colores {
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(66, 36, 91, 0.1);
+}
+
+/* =========================================================
+   ENCABEZADO DE COLORES
+========================================================= */
+
+.colores__titulo {
+  margin: 0 0 8px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: var(--color-morado-oscuro);
+}
+
+.colores__descripcion {
+  margin: 0 0 20px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   GRID DE COLORES
+
+   En celular usamos 2 columnas.
+========================================================= */
+
+.colores__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+/* =========================================================
+   TARJETA DE COLOR
+========================================================= */
+
+.color {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(66, 36, 91, 0.1);
+
+  border-radius: 4px;
+
+  background-color: var(--color-blanco);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.color:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(66, 36, 91, 0.25);
+
+  box-shadow: 0 8px 20px rgba(48, 30, 60, 0.1);
+}
+
+/* =========================================================
+   IMAGEN DEL COLOR
+========================================================= */
+
+.color__imagen {
+  width: 100%;
+
+  height: 135px;
+
+  overflow: hidden;
+
+  background-color: #eee8df;
+}
+
+.color__imagen img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.color:hover .color__imagen img {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   NOMBRE DEL COLOR
+========================================================= */
+
+.color__nombre {
+  display: block;
+
+  padding: 11px 8px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  text-align: center;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   INDICADOR DE COLOR
+========================================================= */
+
+.color__indicador {
+  position: absolute;
+
+  top: 8px;
+
+  right: 8px;
+
+  width: 18px;
+
+  height: 18px;
+
+  border: 2px solid var(--color-blanco);
+
+  border-radius: 50%;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   COLORES DEL INDICADOR
+
+   Puedes utilizar estas clases cuando
+   agreguemos los colores reales.
+========================================================= */
+
+.color--rojo .color__indicador {
+  background-color: #9e2735;
+}
+
+.color--azul .color__indicador {
+  background-color: #263f72;
+}
+
+.color--verde .color__indicador {
+  background-color: #426b4a;
+}
+
+.color--dorado .color__indicador {
+  background-color: #c49a48;
+}
+
+.color--morado .color__indicador {
+  background-color: #5d3974;
+}
+
+.color--blanco .color__indicador {
+  background-color: #f5f2ea;
+
+  border-color: #d8d1c6;
+}
+
+.color--negro .color__indicador {
+  background-color: #242127;
+}
+
+/* =========================================================
+   COLOR SELECCIONADO
+========================================================= */
+
+.color.active {
+  border-color: var(--color-morado);
+
+  box-shadow: 0 0 0 2px rgba(66, 36, 91, 0.1);
+}
+
+/* =========================================================
+   MENSAJE SIN COLORES
+========================================================= */
+
+.colores-vacio {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 100px;
+
+  padding: 20px;
+
+  border: 1px dashed rgba(66, 36, 91, 0.2);
+
+  border-radius: 4px;
+
+  background-color: rgba(66, 36, 91, 0.02);
+
+  text-align: center;
+}
+
+.colores-vacio p {
+  margin: 0;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   INFORMACIÓN DE DISPONIBILIDAD
+========================================================= */
+
+.producto-disponibilidad {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 20px;
+
+  padding: 12px 14px;
+
+  border-radius: 3px;
+
+  background-color: rgba(66, 36, 91, 0.05);
+}
+
+.producto-disponibilidad__punto {
+  flex-shrink: 0;
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-verde);
+}
+
+.producto-disponibilidad p {
+  margin: 0;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   INFORMACIÓN DE MEDIDAS
+========================================================= */
+
+.producto-medida-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-top: 15px;
+}
+
+.producto-medida-info span {
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  color: var(--color-texto-secundario);
+}
+
+.producto-medida-info strong {
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   GALERÍA DEL PRODUCTO
+========================================================= */
+
+.producto-galeria {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+.producto-galeria__item {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 250px;
+
+  border-radius: 4px;
+
+  background-color: #eee8df;
+}
+
+.producto-galeria__item img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.producto-galeria__item:hover img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   TEXTO SOBRE IMAGEN
+========================================================= */
+
+.producto-galeria__texto {
+  position: absolute;
+
+  right: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  padding: 30px 15px 15px;
+
+  background: linear-gradient(transparent, rgba(20, 15, 25, 0.75));
+
+  color: var(--color-blanco);
+}
+
+.producto-galeria__texto span {
+  font-family: var(--fuente-principal);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.producto-galeria__texto h3 {
+  margin: 5px 0 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 25px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   BOTÓN DE CONSULTA
+========================================================= */
+
+.producto-consultar {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+/* =========================================================
+   BOTÓN GENERAL DE PRODUCTO
+========================================================= */
+
+.producto-consultar a {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 12px 18px;
+
+  border-radius: 3px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.producto-consultar a:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   BOTÓN WHATSAPP
+========================================================= */
+
+.producto-consultar .whatsapp {
+  background-color: var(--color-verde);
+
+  color: var(--color-blanco);
+}
+
+.producto-consultar .whatsapp:hover {
+  background-color: #3d8448;
+}
+
+/* =========================================================
+   SECCIÓN OCULTA
+========================================================= */
+
+.producto-oculto {
+  display: none;
+}
+
+/* =========================================================
+   ANIMACIÓN DE APARICIÓN
+========================================================= */
+
+.producto-aparece {
+  animation: productoAparece 0.4s ease forwards;
+}
+
+@keyframes productoAparece {
+  from {
+    opacity: 0;
+
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+   Desde 600px
+========================================================= */
+
+@media (min-width: 600px) {
+  .producto-info__titulo {
+    font-size: 45px;
+  }
+
+  .modelos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .medidas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .colores__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .color__imagen {
+    height: 150px;
+  }
+
+  .producto-galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .producto-galeria__item {
+    height: 280px;
+  }
+}
+
+/* =========================================================
+   ESCRITORIO
+   Desde 900px
+========================================================= */
+
+@media (min-width: 900px) {
+  .producto-info__titulo {
+    font-size: 55px;
+  }
+
+  .modelos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .medidas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .colores__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .color__imagen {
+    height: 165px;
+  }
+
+  .producto-galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .producto-galeria__item {
+    height: 320px;
+  }
+
+  .producto-consultar {
+    flex-direction: row;
+  }
+
+  .producto-consultar a {
+    width: auto;
+
+    min-width: 200px;
+  }
+}
+
+/* =========================================================
+   ESCRITORIO GRANDE
+   Desde 1200px
+========================================================= */
+
+@media (min-width: 1200px) {
+  .producto-info__titulo {
+    font-size: 60px;
+  }
+
+  .colores__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .color__imagen {
+    height: 180px;
+  }
+}

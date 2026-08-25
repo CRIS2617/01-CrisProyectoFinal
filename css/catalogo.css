@@ -1,0 +1,988 @@
+/* =========================================================
+   BORDADURÍA INTERNACIONAL J&M
+   CATALOGO.CSS
+
+   Diseño MOBILE-FIRST
+   Este archivo controla:
+   - Encabezados de catálogo
+   - Tarjetas de productos
+   - Imágenes
+   - Botones
+   - Detalle del producto
+========================================================= */
+
+/* =========================================================
+   ENCABEZADO DE PÁGINA
+========================================================= */
+
+.page-header {
+  position: relative;
+
+  padding: 55px 0 60px;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-morado-oscuro),
+    var(--color-morado)
+  );
+
+  color: var(--color-blanco);
+
+  overflow: hidden;
+}
+
+/*
+   Decoración sutil del encabezado
+*/
+
+.page-header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+
+  height: 220px;
+
+  top: -100px;
+
+  right: -90px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+}
+
+.page-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+
+  height: 150px;
+
+  bottom: -80px;
+
+  left: -70px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+}
+
+/* Contenedor */
+
+.page-header__container {
+  position: relative;
+
+  z-index: 1;
+
+  text-align: center;
+}
+
+/* =========================================================
+   MIGAS DE PAN
+========================================================= */
+
+.breadcrumb {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 28px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb a {
+  color: var(--color-blanco);
+
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.breadcrumb span:last-child {
+  color: var(--color-dorado);
+}
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.page-header__subtitle {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: var(--color-dorado);
+}
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+========================================================= */
+
+.page-header__title {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 60px;
+
+  font-weight: 600;
+
+  line-height: 0.95;
+
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.page-header__description {
+  max-width: 500px;
+
+  margin: 22px auto 0;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   SECCIÓN DE PRODUCTOS
+========================================================= */
+
+.productos {
+  padding: 65px 0;
+
+  background-color: var(--color-crema);
+}
+
+/* =========================================================
+   ENCABEZADO DE SECCIÓN
+========================================================= */
+
+.section-header {
+  margin-bottom: 35px;
+
+  text-align: center;
+}
+
+.section-header__subtitle {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+
+  color: var(--color-morado);
+}
+
+.section-header__title {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 44px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: var(--color-morado-oscuro);
+}
+
+.section-header__description {
+  max-width: 520px;
+
+  margin: 18px auto 0;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   GRID DE PRODUCTOS
+
+   MOBILE FIRST
+========================================================= */
+
+.productos__grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 22px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   TARJETA DE PRODUCTO
+========================================================= */
+
+.producto-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background-color: var(--color-blanco);
+
+  border: 1px solid rgba(66, 36, 91, 0.1);
+
+  border-radius: 4px;
+
+  box-shadow: 0 5px 20px rgba(48, 30, 60, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   IMAGEN DE PRODUCTO
+========================================================= */
+
+.producto-card__image {
+  position: relative;
+
+  width: 100%;
+
+  height: 290px;
+
+  overflow: hidden;
+
+  background-color: #eee8df;
+}
+
+.producto-card__image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.1));
+
+  pointer-events: none;
+}
+
+.producto-card__image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+/* =========================================================
+   EFECTO AL PASAR EL MOUSE
+========================================================= */
+
+.producto-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 12px 30px rgba(48, 30, 60, 0.13);
+}
+
+.producto-card:hover .producto-card__image img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   CONTENIDO DE TARJETA
+========================================================= */
+
+.producto-card__content {
+  padding: 24px 20px 22px;
+}
+
+.producto-card__number {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: var(--color-dorado);
+}
+
+.producto-card__title {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: var(--color-morado-oscuro);
+}
+
+.producto-card__description {
+  margin: 13px 0 20px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 12px;
+
+  line-height: 1.75;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   BOTÓN DE PRODUCTO
+========================================================= */
+
+.producto-card__button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 12px 18px;
+
+  border: 1px solid var(--color-morado);
+
+  border-radius: 3px;
+
+  background-color: transparent;
+
+  color: var(--color-morado);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.producto-card__button:hover {
+  background-color: var(--color-morado);
+
+  border-color: var(--color-morado);
+
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   DETALLE DEL PRODUCTO
+========================================================= */
+
+.producto-detalle {
+  padding: 65px 0;
+
+  background-color: var(--color-blanco);
+
+  border-top: 1px solid rgba(66, 36, 91, 0.08);
+}
+
+.producto-detalle[hidden] {
+  display: none;
+}
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.producto-detalle__close {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 42px;
+
+  margin-bottom: 30px;
+
+  padding: 9px 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--color-morado);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+}
+
+.producto-detalle__close:hover {
+  color: var(--color-dorado);
+}
+
+/* =========================================================
+   GRID DEL DETALLE
+========================================================= */
+
+.producto-detalle__grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 35px;
+}
+
+/* =========================================================
+   IMAGEN DEL DETALLE
+========================================================= */
+
+.producto-detalle__image {
+  width: 100%;
+
+  height: 350px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background-color: #eee8df;
+}
+
+.producto-detalle__image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   CONTENIDO DEL DETALLE
+========================================================= */
+
+.producto-detalle__content {
+  width: 100%;
+}
+
+.producto-detalle__category {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+
+  color: var(--color-dorado);
+}
+
+.producto-detalle__content h2 {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 43px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: var(--color-morado-oscuro);
+}
+
+.producto-detalle__content > p {
+  margin: 18px 0 30px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   MEDIDAS / TAMAÑOS
+========================================================= */
+
+.producto-medidas {
+  margin-top: 25px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(66, 36, 91, 0.1);
+}
+
+.producto-medidas h3,
+.producto-colores h3 {
+  margin: 0 0 15px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   LISTA DE MEDIDAS
+========================================================= */
+
+.producto-medidas__list {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 9px;
+}
+
+.medida-button {
+  min-height: 45px;
+
+  padding: 10px;
+
+  border: 1px solid rgba(66, 36, 91, 0.2);
+
+  border-radius: 3px;
+
+  background-color: var(--color-blanco);
+
+  color: var(--color-morado-oscuro);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.medida-button:hover,
+.medida-button.active {
+  background-color: var(--color-morado);
+
+  border-color: var(--color-morado);
+
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   COLORES
+========================================================= */
+
+.producto-colores {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(66, 36, 91, 0.1);
+}
+
+.producto-colores__info {
+  margin: -5px 0 20px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   GRID DE COLORES
+========================================================= */
+
+.colores-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+/* =========================================================
+   TARJETA DE COLOR
+========================================================= */
+
+.color-card {
+  overflow: hidden;
+
+  border: 1px solid rgba(66, 36, 91, 0.1);
+
+  border-radius: 3px;
+
+  background-color: var(--color-blanco);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.color-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(48, 30, 60, 0.1);
+}
+
+.color-card__image {
+  width: 100%;
+
+  height: 130px;
+
+  overflow: hidden;
+
+  background-color: #eee8df;
+}
+
+.color-card__image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.color-card__name {
+  display: block;
+
+  padding: 11px 8px;
+
+  text-align: center;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  color: var(--color-morado-oscuro);
+}
+
+/* =========================================================
+   CONSULTA POR PRODUCTO
+========================================================= */
+
+.producto-consulta {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(66, 36, 91, 0.1);
+
+  text-align: center;
+}
+
+.producto-consulta p {
+  margin: 0 0 15px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 12px;
+
+  color: var(--color-texto-secundario);
+}
+
+/* =========================================================
+   BOTÓN WHATSAPP
+========================================================= */
+
+.button--whatsapp {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 12px 20px;
+
+  border: 0;
+
+  border-radius: 3px;
+
+  background-color: var(--color-verde);
+
+  color: var(--color-blanco);
+
+  font-family: var(--fuente-principal);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.button--whatsapp:hover {
+  background-color: #3d8448;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SECCIÓN DE CONTACTO
+========================================================= */
+
+.contacto--catalogo {
+  padding: 65px 0;
+
+  background-color: var(--color-morado-oscuro);
+
+  color: var(--color-blanco);
+
+  text-align: center;
+}
+
+.contacto__container {
+  max-width: 700px;
+}
+
+.contacto__content h2 {
+  margin: 8px 0 18px;
+
+  font-family: var(--fuente-titulos);
+
+  font-size: 43px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: var(--color-blanco);
+}
+
+.contacto__content p {
+  max-width: 520px;
+
+  margin: 0 auto 25px;
+
+  font-family: var(--fuente-principal);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contacto--catalogo .section-header__subtitle {
+  color: var(--color-dorado);
+}
+
+.button--large {
+  max-width: 320px;
+}
+
+/* =========================================================
+   TABLET
+   Desde 600px
+========================================================= */
+
+@media (min-width: 600px) {
+  .productos {
+    padding: 80px 0;
+  }
+
+  .productos__grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+  }
+
+  .producto-card__image {
+    height: 300px;
+  }
+
+  .producto-card__content {
+    padding: 25px;
+  }
+
+  .colores-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .producto-detalle__image {
+    height: 430px;
+  }
+}
+
+/* =========================================================
+   ESCRITORIO
+   Desde 900px
+========================================================= */
+
+@media (min-width: 900px) {
+  .page-header {
+    padding: 80px 0 85px;
+  }
+
+  .page-header__title {
+    font-size: 85px;
+  }
+
+  .productos {
+    padding: 100px 0;
+  }
+
+  .section-header {
+    margin-bottom: 50px;
+  }
+
+  .section-header__title {
+    font-size: 58px;
+  }
+
+  .productos__grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+  }
+
+  .producto-card__image {
+    height: 330px;
+  }
+
+  .producto-detalle {
+    padding: 100px 0;
+  }
+
+  .producto-detalle__grid {
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+  }
+
+  .producto-detalle__image {
+    height: 550px;
+  }
+
+  .producto-detalle__content h2 {
+    font-size: 55px;
+  }
+
+  .producto-medidas__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .colores-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contacto--catalogo {
+    padding: 90px 0;
+  }
+
+  .contacto__content h2 {
+    font-size: 55px;
+  }
+}

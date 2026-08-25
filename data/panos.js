@@ -1,11 +1,12 @@
 /* =========================================================
    BORDADURÍA INTERNACIONAL J&M
-   MANTOS.JS
+   PAÑOS.JS
 
    Funciones:
    - Selección de tamaño
    - Mostrar colores disponibles
-   - Cambiar imagen según el color
+   - Selección de color
+   - Cambiar imagen principal
    - Consulta personalizada por WhatsApp
 
    TAMAÑOS:
@@ -18,10 +19,10 @@
 ========================================================= */
 
 /* =========================================================
-   DATOS DE MANTOS
+   DATOS DE PAÑOS
 ========================================================= */
 
-const mantos = {
+const panos = {
   /* =====================================================
        PEQUEÑO
     ===================================================== */
@@ -32,22 +33,22 @@ const mantos = {
     colores: [
       {
         nombre: "Rojo",
-        imagen: "../img/mantos/pequeno/rojo.webp",
+        imagen: "../img/panos/pequeno/rojo.webp",
       },
 
       {
         nombre: "Azul",
-        imagen: "../img/mantos/pequeno/azul.webp",
+        imagen: "../img/panos/pequeno/azul.webp",
       },
 
       {
         nombre: "Verde",
-        imagen: "../img/mantos/pequeno/verde.webp",
+        imagen: "../img/panos/pequeno/verde.webp",
       },
 
       {
         nombre: "Dorado",
-        imagen: "../img/mantos/pequeno/dorado.webp",
+        imagen: "../img/panos/pequeno/dorado.webp",
       },
     ],
   },
@@ -62,22 +63,22 @@ const mantos = {
     colores: [
       {
         nombre: "Rojo",
-        imagen: "../img/mantos/mediano/rojo.webp",
+        imagen: "../img/panos/mediano/rojo.webp",
       },
 
       {
         nombre: "Azul",
-        imagen: "../img/mantos/mediano/azul.webp",
+        imagen: "../img/panos/mediano/azul.webp",
       },
 
       {
         nombre: "Verde",
-        imagen: "../img/mantos/mediano/verde.webp",
+        imagen: "../img/panos/mediano/verde.webp",
       },
 
       {
         nombre: "Dorado",
-        imagen: "../img/mantos/mediano/dorado.webp",
+        imagen: "../img/panos/mediano/dorado.webp",
       },
     ],
   },
@@ -92,22 +93,22 @@ const mantos = {
     colores: [
       {
         nombre: "Rojo",
-        imagen: "../img/mantos/grande/rojo.webp",
+        imagen: "../img/panos/grande/rojo.webp",
       },
 
       {
         nombre: "Azul",
-        imagen: "../img/mantos/grande/azul.webp",
+        imagen: "../img/panos/grande/azul.webp",
       },
 
       {
         nombre: "Verde",
-        imagen: "../img/mantos/grande/verde.webp",
+        imagen: "../img/panos/grande/verde.webp",
       },
 
       {
         nombre: "Dorado",
-        imagen: "../img/mantos/grande/dorado.webp",
+        imagen: "../img/panos/grande/dorado.webp",
       },
     ],
   },
@@ -117,36 +118,36 @@ const mantos = {
    ELEMENTOS HTML
 ========================================================= */
 
-const tamanosMantos = document.querySelector("#tamanos-mantos");
+const tamanosPanos = document.querySelector("#tamanos-panos");
 
-const coloresMantos = document.querySelector("#colores-mantos");
+const coloresPanos = document.querySelector("#colores-panos");
 
-const imagenManto = document.querySelector("#imagen-manto");
+const imagenPano = document.querySelector("#imagen-pano");
 
-const nombreManto = document.querySelector("#nombre-manto");
+const nombrePano = document.querySelector("#nombre-pano");
 
-const descripcionManto = document.querySelector("#descripcion-manto");
+const descripcionPano = document.querySelector("#descripcion-pano");
 
 /* =========================================================
    VARIABLES ACTUALES
 ========================================================= */
 
-let tamanoMantoActual = null;
+let tamanoPanoActual = null;
 
-let colorMantoActual = null;
+let colorPanoActual = null;
 
 /* =========================================================
    MOSTRAR TAMAÑOS
 ========================================================= */
 
-function mostrarTamanosMantos() {
-  if (!tamanosMantos) {
+function mostrarTamanosPanos() {
+  if (!tamanosPanos) {
     return;
   }
 
-  tamanosMantos.innerHTML = "";
+  tamanosPanos.innerHTML = "";
 
-  Object.entries(mantos).forEach(([id, tamano]) => {
+  Object.entries(panos).forEach(([id, tamano]) => {
     const boton = document.createElement("button");
 
     boton.type = "button";
@@ -158,10 +159,10 @@ function mostrarTamanosMantos() {
     boton.textContent = tamano.nombre;
 
     boton.addEventListener("click", () => {
-      seleccionarTamanoManto(id);
+      seleccionarTamanoPano(id);
     });
 
-    tamanosMantos.appendChild(boton);
+    tamanosPanos.appendChild(boton);
   });
 }
 
@@ -169,20 +170,20 @@ function mostrarTamanosMantos() {
    SELECCIONAR TAMAÑO
 ========================================================= */
 
-function seleccionarTamanoManto(idTamano) {
-  const tamano = mantos[idTamano];
+function seleccionarTamanoPano(idTamano) {
+  const tamano = panos[idTamano];
 
   if (!tamano) {
     return;
   }
 
-  tamanoMantoActual = idTamano;
+  tamanoPanoActual = idTamano;
 
   /*
        Activar botón seleccionado
     */
 
-  const botones = tamanosMantos.querySelectorAll(".medida-button");
+  const botones = tamanosPanos.querySelectorAll(".medida-button");
 
   botones.forEach((boton) => {
     boton.classList.toggle("active", boton.dataset.tamano === idTamano);
@@ -192,42 +193,42 @@ function seleccionarTamanoManto(idTamano) {
        Actualizar título
     */
 
-  if (nombreManto) {
-    nombreManto.textContent = `Manto ${tamano.nombre}`;
+  if (nombrePano) {
+    nombrePano.textContent = `Paño ${tamano.nombre}`;
   }
 
   /*
        Actualizar descripción
     */
 
-  if (descripcionManto) {
-    descripcionManto.textContent = `Manto disponible en tamaño ${tamano.nombre}.`;
+  if (descripcionPano) {
+    descripcionPano.textContent = `Paño disponible en tamaño ${tamano.nombre}.`;
   }
 
   /*
        Mostrar colores
     */
 
-  mostrarColoresMantos(tamano.colores);
+  mostrarColoresPanos(tamano.colores);
 }
 
 /* =========================================================
    MOSTRAR COLORES
 ========================================================= */
 
-function mostrarColoresMantos(colores) {
-  if (!coloresMantos) {
+function mostrarColoresPanos(colores) {
+  if (!coloresPanos) {
     return;
   }
 
-  coloresMantos.innerHTML = "";
+  coloresPanos.innerHTML = "";
 
   /*
        Comprobar si existen colores
     */
 
   if (!colores || colores.length === 0) {
-    coloresMantos.innerHTML = `
+    coloresPanos.innerHTML = `
 
             <div class="colores-vacio">
 
@@ -258,7 +259,7 @@ function mostrarColoresMantos(colores) {
 
                     <img
                         src="${color.imagen}"
-                        alt="Manto ${tamanoMantoActual} - ${color.nombre}"
+                        alt="Paño ${tamanoPanoActual} - ${color.nombre}"
                         loading="lazy"
                     >
 
@@ -275,10 +276,10 @@ function mostrarColoresMantos(colores) {
             */
 
     tarjeta.addEventListener("click", () => {
-      seleccionarColorManto(tarjeta, color);
+      seleccionarColorPano(tarjeta, color);
     });
 
-    coloresMantos.appendChild(tarjeta);
+    coloresPanos.appendChild(tarjeta);
   });
 }
 
@@ -286,12 +287,12 @@ function mostrarColoresMantos(colores) {
    SELECCIONAR COLOR
 ========================================================= */
 
-function seleccionarColorManto(tarjeta, color) {
+function seleccionarColorPano(tarjeta, color) {
   /*
        Quitar selección anterior
     */
 
-  const tarjetas = coloresMantos.querySelectorAll(".color-card");
+  const tarjetas = coloresPanos.querySelectorAll(".color-card");
 
   tarjetas.forEach((elemento) => {
     elemento.classList.remove("active");
@@ -303,24 +304,24 @@ function seleccionarColorManto(tarjeta, color) {
 
   tarjeta.classList.add("active");
 
-  colorMantoActual = color;
+  colorPanoActual = color;
 
   /*
        Cambiar imagen principal
     */
 
-  if (imagenManto) {
-    imagenManto.src = color.imagen;
+  if (imagenPano) {
+    imagenPano.src = color.imagen;
 
-    imagenManto.alt = `Manto ${color.nombre}`;
+    imagenPano.alt = `Paño ${color.nombre}`;
   }
 }
 
 /* =========================================================
-   CONSULTAR MANTO POR WHATSAPP
+   CONSULTAR PAÑO POR WHATSAPP
 ========================================================= */
 
-function consultarManto() {
+function consultarPano() {
   /*
        Comprobar que whatsapp.js
        esté cargado.
@@ -336,19 +337,19 @@ function consultarManto() {
        Obtener tamaño
     */
 
-  const tamano = tamanoMantoActual ? mantos[tamanoMantoActual].nombre : "";
+  const tamano = tamanoPanoActual ? panos[tamanoPanoActual].nombre : "";
 
   /*
        Obtener color
     */
 
-  const color = colorMantoActual ? colorMantoActual.nombre : "";
+  const color = colorPanoActual ? colorPanoActual.nombre : "";
 
   /*
-       Crear mensaje
+       Crear mensaje personalizado
     */
 
-  const mensaje = crearMensajeProducto("Mantos", tamano, color);
+  const mensaje = crearMensajeProducto("Paños", tamano, color);
 
   /*
        Abrir WhatsApp
@@ -361,13 +362,13 @@ function consultarManto() {
    BOTÓN WHATSAPP
 ========================================================= */
 
-const botonWhatsAppManto = document.querySelector("#whatsapp-manto");
+const botonWhatsAppPano = document.querySelector("#whatsapp-pano");
 
-if (botonWhatsAppManto) {
-  botonWhatsAppManto.addEventListener("click", (event) => {
+if (botonWhatsAppPano) {
+  botonWhatsAppPano.addEventListener("click", (event) => {
     event.preventDefault();
 
-    consultarManto();
+    consultarPano();
   });
 }
 
@@ -377,19 +378,19 @@ if (botonWhatsAppManto) {
 
 document.addEventListener("DOMContentLoaded", () => {
   /*
-           Mostrar los tres tamaños
+           Mostrar Pequeño, Mediano y Grande
         */
 
-  mostrarTamanosMantos();
+  mostrarTamanosPanos();
 
   /*
            Seleccionar automáticamente
-           Pequeño
+           el primer tamaño
         */
 
-  const primerTamano = Object.keys(mantos)[0];
+  const primerTamano = Object.keys(panos)[0];
 
   if (primerTamano) {
-    seleccionarTamanoManto(primerTamano);
+    seleccionarTamanoPano(primerTamano);
   }
 });

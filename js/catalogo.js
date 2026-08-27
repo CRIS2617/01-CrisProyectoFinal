@@ -41,7 +41,7 @@ const catalogo = {
       "modelo-1": {
         nombre: "Modelo 1",
 
-        imagen: "../assets/img/bandos/modelo-1/principal.webp",
+        imagen: "../assets/img/bandos/modelo-01/bandoModelo1.jpeg",
 
         descripcion: "Bando bordado del modelo 1.",
 
@@ -86,7 +86,7 @@ const catalogo = {
       "modelo-1": {
         nombre: "Modelo 1",
 
-        imagen: "../assets/img/guiones/modelo-1/principal.webp",
+        imagen: "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
 
         descripcion: "Guion bordado del modelo 1.",
 
@@ -131,7 +131,7 @@ const catalogo = {
       pequeno: {
         nombre: "Pequeño",
 
-        imagen: "../assets/img/mantos/pequeno/principal.webp",
+        imagen: "../assets/img/mantos/pequeño/mantoPequeño.jpeg",
 
         descripcion: "Manto bordado en tamaño pequeño.",
 
@@ -161,7 +161,7 @@ const catalogo = {
       mediano: {
         nombre: "Mediano",
 
-        imagen: "../assets/img/mantos/mediano/principal.webp",
+        imagen: "../assets/img/mantos/mediano/mantoMediano.jpeg",
 
         descripcion: "Manto bordado en tamaño mediano.",
 
@@ -191,7 +191,7 @@ const catalogo = {
       grande: {
         nombre: "Grande",
 
-        imagen: "../assets/img/mantos/grande/principal.webp",
+        imagen: "../assets/img/mantos/grande/mantoGrande.jpeg",
 
         descripcion: "Manto bordado en tamaño grande.",
 
@@ -236,7 +236,7 @@ const catalogo = {
       pequeno: {
         nombre: "Pequeño",
 
-        imagen: "../assets/img/panos/pequeno/principal.webp",
+        imagen: "../assets/img/panos/pequeño/panoPequeño.jpeg",
 
         descripcion: "Paño bordado en tamaño pequeño.",
 
@@ -266,7 +266,7 @@ const catalogo = {
       mediano: {
         nombre: "Mediano",
 
-        imagen: "../assets/img/panos/mediano/principal.jpeg",
+        imagen: "../assets/img/panos/mediano/panoMediano.jpeg",
 
         descripcion: "Paño bordado en tamaño mediano.",
 
@@ -296,7 +296,7 @@ const catalogo = {
       grande: {
         nombre: "Grande",
 
-        imagen: "../assets/img/panos/grande/principal.webp",
+        imagen: "../assets/img/panos/grande/panoGrande.jpeg",
 
         descripcion: "Paño bordado en tamaño grande.",
 
@@ -340,7 +340,7 @@ const catalogo = {
       "otros-1": {
         nombre: "Otros 1",
 
-        imagen: "../assets/img/otros/otros-1/principal.webp",
+        imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
 
         descripcion: "Producto bordado correspondiente a Otros 1.",
 
@@ -370,7 +370,7 @@ const catalogo = {
       "otros-2": {
         nombre: "Otros 2",
 
-        imagen: "../assets/img/otros/otros-2/principal.webp",
+        imagen: "../assets/img/otros/otros-2/banderin2.jpeg",
 
         descripcion: "Producto bordado correspondiente a Otros 2.",
 
@@ -399,6 +399,35 @@ const catalogo = {
     },
   },
 };
+
+const rutasImagenesReales = {
+  "bandos/modelo-1": "../assets/img/bandos/modelo-01/bandoModelo1.jpeg",
+  "guiones/modelo-1": "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+  "mantos/pequeno": "../assets/img/mantos/pequeño/mantoPequeño.jpeg",
+  "mantos/mediano": "../assets/img/mantos/mediano/mantoMediano.jpeg",
+  "mantos/grande": "../assets/img/mantos/grande/mantoGrande.jpeg",
+  "panos/pequeno": "../assets/img/panos/pequeño/panoPequeño.jpeg",
+  "panos/mediano": "../assets/img/panos/mediano/panoMediano.jpeg",
+  "panos/grande": "../assets/img/panos/grande/panoGrande.jpeg",
+  "otros/otros-1": "../assets/img/otros/otros-1/gallardete.jpeg",
+  "otros/otros-2": "../assets/img/otros/otros-2/banderin2.jpeg",
+};
+
+Object.entries(catalogo).forEach(([categoria, datosProducto]) => {
+  Object.entries(datosProducto.modelos).forEach(([modelo, datosModelo]) => {
+    const ruta = rutasImagenesReales[`${categoria}/${modelo}`];
+
+    if (!ruta) {
+      return;
+    }
+
+    datosModelo.imagen = ruta;
+    datosModelo.colores = datosModelo.colores.map((color) => ({
+      ...color,
+      imagen: ruta,
+    }));
+  });
+});
 
 /* =========================================================
    ELEMENTOS DEL DOM

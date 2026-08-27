@@ -17,6 +17,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   inicializarProductos();
+  inicializarBotonesVer();
 });
 
 /* =========================================================
@@ -224,19 +225,21 @@ function seleccionarProducto(producto) {
    BOTONES "VER PRODUCTO"
 ========================================================= */
 
-const botonesVer = document.querySelectorAll(".producto-card__button");
+function inicializarBotonesVer() {
+  const botonesVer = document.querySelectorAll(".producto-card__button");
 
-botonesVer.forEach((boton) => {
-  boton.addEventListener("click", () => {
-    const tarjeta = boton.closest(".producto-card");
+  botonesVer.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const tarjeta = boton.closest(".producto-card");
 
-    if (!tarjeta) {
-      return;
-    }
+      if (!tarjeta) {
+        return;
+      }
 
-    seleccionarProducto(tarjeta);
+      seleccionarProducto(tarjeta);
+    });
   });
-});
+}
 
 /* =========================================================
    CARGAR PRODUCTO SELECCIONADO

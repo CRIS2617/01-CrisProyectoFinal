@@ -282,6 +282,39 @@ botones.forEach((boton) => {
 });
 
 /* =========================================================
+   SLIDESHOW DE IMÁGENES
+========================================================= */
+
+function inicializarSlideshow() {
+  const slideshowImgs = document.querySelectorAll('.slideshow-img');
+
+  slideshowImgs.forEach(img => {
+    const rawData = img.getAttribute('data-images');
+    if (!rawData) return;
+
+    const images = rawData.split(',').map(s => s.trim());
+    if (images.length <= 1) return;
+
+    let currentIndex = 0;
+    
+    // Transición suave por defecto
+    img.style.transition = 'opacity 0.2s ease';
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      
+      img.style.opacity = '0.4';
+      
+      setTimeout(() => {
+        img.src = images[currentIndex];
+        img.style.opacity = '1';
+      }, 200);
+      
+    }, 2000);
+  });
+}
+
+/* =========================================================
    INICIALIZACIÓN
 ========================================================= */
 
@@ -301,6 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
         */
 
   actualizarHeader();
+  
+  inicializarSlideshow();
 
   console.log("Bordaduría Internacional J&M - sitio cargado correctamente.");
 });

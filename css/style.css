@@ -236,6 +236,75 @@ section {
   line-height: 1.8;
 }
 
+.catalogo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.category-card {
+  background-color: var(--color-crema);
+  border-radius: var(--radio-medio);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-media);
+}
+
+.category-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.category-card__image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #eee8df;
+}
+
+.category-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-card__image img {
+  transform: scale(1.05);
+}
+
+.category-card__content {
+  padding: 25px 20px;
+}
+
+.category-card__content h3 {
+  margin-bottom: 10px;
+  font-family: var(--fuente-titulos);
+  font-size: 28px;
+  color: var(--color-morado-oscuro);
+}
+
+.category-card__content p {
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: var(--color-texto-secundario);
+}
+
+.category-card__link {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-magenta);
+}
+
 /* =========================================================
    5. TÍTULOS
 ========================================================= */

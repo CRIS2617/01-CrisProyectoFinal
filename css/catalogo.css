@@ -290,38 +290,24 @@
 ========================================================= */
 
 .producto-card__image {
-  position: relative;
-
   width: 100%;
-
-  height: 290px;
-
+  height: 220px;
   overflow: hidden;
-
   background-color: #eee8df;
 }
 
 .producto-card__image::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.1));
-
   pointer-events: none;
 }
 
 .producto-card__image img {
-  display: block;
-
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition: transform 0.5s ease;
 }
 
@@ -898,7 +884,7 @@
   }
 
   .producto-card__image {
-    height: 300px;
+    height: 220px;
   }
 
   .producto-card__content {
@@ -947,7 +933,7 @@
   }
 
   .producto-card__image {
-    height: 330px;
+    height: 220px;
   }
 
   .producto-detalle {

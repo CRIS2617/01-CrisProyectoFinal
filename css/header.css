@@ -20,9 +20,9 @@
 
   width: 100%;
 
-  background-color: var(--color-blanco);
+  background-color: var(--color-oceano);
 
-  border-bottom: 1px solid rgba(66, 36, 91, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   z-index: 1000;
 }
@@ -90,9 +90,9 @@
 
   padding: 15px 20px 25px;
 
-  background-color: var(--color-blanco);
+  background-color: var(--color-oceano);
 
-  border-bottom: 1px solid rgba(66, 36, 91, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   box-shadow: 0 12px 25px rgba(48, 30, 60, 0.08);
 
@@ -163,7 +163,7 @@
 
   border-radius: 3px;
 
-  color: var(--color-morado-oscuro);
+  color: var(--color-blanco);
 
   font-family: var(--fuente-principal);
 
@@ -187,9 +187,9 @@
 ========================================================= */
 
 .nav__link:hover {
-  background-color: rgba(66, 36, 91, 0.06);
+  background-color: rgba(255, 255, 255, 0.12);
 
-  color: var(--color-morado);
+  color: var(--color-blanco);
 }
 
 /* =========================================================
@@ -197,9 +197,9 @@
 ========================================================= */
 
 .nav__link--active {
-  background-color: rgba(66, 36, 91, 0.08);
+  background-color: rgba(255, 255, 255, 0.16);
 
-  color: var(--color-morado);
+  color: var(--color-blanco);
 }
 
 /* =========================================================
@@ -221,7 +221,7 @@
 
   border-radius: 3px;
 
-  background-color: var(--color-verde);
+  background-color: var(--color-acento);
 
   color: var(--color-blanco);
 
@@ -243,7 +243,7 @@
 }
 
 .nav__whatsapp:hover {
-  background-color: #3d8448;
+  background-color: #c95e3d;
 
   transform: translateY(-1px);
 }
@@ -269,11 +269,11 @@
 
   padding: 0;
 
-  border: 1px solid rgba(66, 36, 91, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   border-radius: 3px;
 
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.08);
 
   cursor: pointer;
 }
@@ -291,7 +291,7 @@
 
   border-radius: 2px;
 
-  background-color: var(--color-morado-oscuro);
+  background-color: var(--color-blanco);
 
   transition:
     transform 0.3s ease,
@@ -426,7 +426,7 @@
   }
 
   .nav__link:hover {
-    background-color: rgba(66, 36, 91, 0.06);
+    background-color: rgba(255, 255, 255, 0.12);
   }
 
   .nav__whatsapp {

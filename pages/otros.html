@@ -40,6 +40,14 @@
     <link rel="stylesheet" href="../css/responsive.css" />
 
     <link rel="stylesheet" href="../css/whatsapp.css" />
+      <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -47,70 +55,45 @@
          HEADER
     ====================================================== -->
 
-    <header class="header">
-      <div class="container header__container">
-        <!-- LOGO -->
+        <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#0d6175] text-white font-sans py-2 md:py-3 shadow-md">
+      <div class="flex items-center justify-between px-6 md:px-10">
+        <!-- NAVEGACIÓN IZQUIERDA (Área Roja: Logo) -->
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold tracking-[0.2em] uppercase">
+            J&M
+          </a>
+        </div>
 
-        <a href="../index.html" class="logo">
-          <img
-            src="../assets/img/logo/logo.jpeg"
-            alt="Bordaduría Internacional J&M - Julcarima Morales"
-          />
-        </a>
+        <!-- NAVEGACIÓN DERECHA (Área Amarilla y Morada) -->
+        <div class="flex items-center space-x-3 md:space-x-6">
+          <a href="../index.html#inicio" class="hidden md:inline-block hover:opacity-75 transition-opacity text-sm font-medium tracking-wide">Inicio</a>
+          <a href="../index.html#nosotros" class="hidden md:inline-block hover:opacity-75 transition-opacity text-sm font-medium tracking-wide">Nosotros</a>
+          
+          <!-- Área Amarilla: Catálogo (Botón) -->
+          <a href="../index.html#productos" class="inline-block bg-[#D4AF37] text-black px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#b89528] transition-colors shadow-sm">
+            Catálogo
+          </a>
+          
+          <!-- Área Morada: Contáctanos (Botón) -->
+          <a href="../index.html#contacto" class="inline-block bg-[#4b245f] text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#351943] transition-colors shadow-sm">
+            Contáctanos
+          </a>
 
-        <!-- NAVEGACIÓN -->
+          <!-- Hamburger Button (Mobile) -->
+          <button id="mobile-menu-btn" class="sm:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50">
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
 
-        <nav class="nav" id="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="../index.html" class="nav__link"> Inicio </a>
-            </li>
-
-            <li class="nav__item">
-              <a
-                href="../index.html#productos"
-                class="nav__link nav__link--active"
-              >
-                Productos
-              </a>
-            </li>
-
-            <li class="nav__item">
-              <a href="../index.html#nosotros" class="nav__link"> Nosotros </a>
-            </li>
-
-            <li class="nav__item">
-              <a href="../index.html#contacto" class="nav__link"> Contacto </a>
-            </li>
-
-            <li class="nav__item">
-              <a
-                href="https://wa.me/51954861832"
-                class="nav__whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <!-- MENÚ MÓVIL -->
-
-        <button
-          class="menu-button"
-          id="menu-button"
-          type="button"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          <span></span>
-
-          <span></span>
-
-          <span></span>
-        </button>
+      <!-- Mobile Menu Overlay (Glassmorphism) -->
+      <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-md flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300 text-white">
+        <a href="../index.html#inicio" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Inicio</a>
+        <a href="../index.html#nosotros" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Nosotros</a>
+        <a href="../index.html#productos" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Catálogo</a>
+        <a href="../index.html#contacto" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Contáctanos</a>
       </div>
     </header>
 
@@ -471,5 +454,40 @@
     <script src="../js/catalogo.js"></script>
 
     <script src="../js/productos.js"></script>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileMenuBtn ? mobileMenuBtn.querySelectorAll('span') : [];
+        let menuOpen = false;
+
+        function toggleMenu() {
+          menuOpen = !menuOpen;
+          if (menuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            spans[0].classList.add('rotate-45', 'translate-y-2');
+            spans[1].classList.add('opacity-0');
+            spans[2].classList.add('-rotate-45', '-translate-y-2');
+          } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            spans[0].classList.remove('rotate-45', 'translate-y-2');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-2');
+          }
+        }
+
+        if(mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', toggleMenu);
+          mobileLinks.forEach(link => link.addEventListener('click', () => {
+            if (menuOpen) toggleMenu();
+          }));
+        }
+      });
+    </script>
+
   </body>
 </html>

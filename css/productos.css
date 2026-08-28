@@ -417,7 +417,12 @@
 }
 
 .color--verde .color__indicador {
-  background-color: #426b4a;
+  background-color: var(--color-verde-producto);
+}
+
+.color--verde .color__imagen img,
+.producto-detalle__image img[src*="/verde."] {
+  filter: sepia(0.55) saturate(1.45) hue-rotate(315deg);
 }
 
 .color--dorado .color__indicador {

@@ -25,6 +25,16 @@
 
   --color-verde: #4b9b57;
 
+  --color-oceano: #0d6175;
+
+  --color-oceano-oscuro: #084354;
+
+  --color-texto-oscuro: #12323d;
+
+  --color-acento: #e07855;
+
+  --color-verde-producto: #d45f45;
+
   /* Fondos */
 
   --color-blanco: #ffffff;
@@ -37,9 +47,9 @@
 
   /* Textos */
 
-  --color-texto: #302a31;
+  --color-texto: var(--color-texto-oscuro);
 
-  --color-texto-secundario: #6c646c;
+  --color-texto-secundario: #4b5960;
 
   --color-texto-claro: #ffffff;
 
@@ -813,7 +823,7 @@ button:focus-visible {
 .footer {
   color: rgba(255, 255, 255, 0.8);
 
-  background-color: var(--color-morado-oscuro);
+  background-color: var(--color-oceano-oscuro);
 }
 
 .footer__container {
@@ -849,7 +859,7 @@ button:focus-visible {
 .footer h3 {
   margin-bottom: 20px;
 
-  color: var(--color-dorado-claro);
+  color: var(--color-acento);
 
   font-family: var(--fuente-principal);
 
@@ -877,7 +887,7 @@ button:focus-visible {
 }
 
 .footer__links a:hover {
-  color: var(--color-dorado-claro);
+  color: var(--color-acento);
 
   padding-left: 4px;
 }

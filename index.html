@@ -28,136 +28,282 @@
     <link rel="stylesheet" href="css/productos.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/whatsapp.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>
+    <style>
+      /* Hover Avanzado en Catálogo */
+      .category-card { position: relative; }
+      .category-card__image { position: relative; }
+      .category-card__image::after {
+        content: "Ver detalles";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(13, 97, 117, 0.7); /* Azul Océano semitransparente */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(15px);
+        z-index: 10;
+        pointer-events: none;
+      }
+      .category-card:hover .category-card__image::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Galería Masonry para Destacados */
+      .destacados__grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-auto-rows: 220px;
+        gap: 20px !important;
+      }
+      @media (min-width: 768px) {
+        .destacados__grid {
+          grid-template-columns: repeat(3, 1fr) !important;
+        }
+      }
+      .destacado { height: 100% !important; border-radius: 12px; }
+      .destacado:nth-child(1) { grid-row: span 2; grid-column: span 2; }
+      .destacado:nth-child(2) { grid-row: span 1; }
+      .destacado:nth-child(3) { grid-row: span 2; }
+      .destacado:nth-child(4) { grid-row: span 1; }
+      
+      /* Forma Orgánica para Sobre Nosotros */
+      .nosotros__image {
+        border-radius: 50% 50% 12px 12px !important; /* Forma de arco */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3) !important;
+      }
+    </style>
   </head>
 
   <body>
     <!-- =====================================================
-         ENCABEZADO
+         ENCABEZADO (TAILWIND)
     ====================================================== -->
 
-    <header class="header">
-      <div class="container header__container">
-        <!-- LOGO -->
-        <a href="index.html" class="logo">
-          <img
-            src="assets/img/logo/logo.jpeg"
-            alt="Bordaduría Internacional J&M - Julcarima Morales"
-          />
-        </a>
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white font-sans py-4 md:py-5">
+      <div class="flex items-center justify-between px-6 md:px-10">
+        <!-- NAVEGACIÓN IZQUIERDA (Área Roja: Logo) -->
+        <div class="flex items-center">
+          <a href="index.html" class="text-2xl font-bold tracking-[0.2em] uppercase">
+            J&M
+          </a>
+        </div>
 
-        <!-- NAVEGACIÓN -->
-        <nav class="nav" id="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#inicio" class="nav__link"> Inicio </a>
-            </li>
+        <!-- NAVEGACIÓN DERECHA (Área Amarilla y Morada) -->
+        <div class="flex items-center space-x-3 md:space-x-6">
+          <a href="#inicio" class="hidden md:inline-block hover:opacity-75 transition-opacity text-sm font-medium tracking-wide">Inicio</a>
+          <a href="#nosotros" class="hidden md:inline-block hover:opacity-75 transition-opacity text-sm font-medium tracking-wide">Nosotros</a>
+          
+          <!-- Área Amarilla: Catálogo (Botón) -->
+          <a href="#productos" class="inline-block bg-[#D4AF37] text-black px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#b89528] transition-colors shadow-sm">
+            Catálogo
+          </a>
+          
+          <!-- Área Morada: Contáctanos (Botón) -->
+          <a href="#contacto" class="inline-block bg-[#4b245f] text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#351943] transition-colors shadow-sm">
+            Contáctanos
+          </a>
 
-            <li class="nav__item">
-              <a href="#productos" class="nav__link"> Productos </a>
-            </li>
+          <!-- Hamburger Button (Mobile) -->
+          <button id="mobile-menu-btn" class="sm:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50">
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
 
-            <li class="nav__item">
-              <a href="#nosotros" class="nav__link"> Nosotros </a>
-            </li>
-
-            <li class="nav__item">
-              <a href="#contacto" class="nav__link"> Contacto </a>
-            </li>
-
-            <li class="nav__item">
-              <a
-                href="https://wa.me/51954861832"
-                class="nav__whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <!-- BOTÓN MENÚ MÓVIL -->
-        <button
-          class="menu-button"
-          id="menu-button"
-          type="button"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      <!-- Mobile Menu Overlay (Glassmorphism) -->
+      <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-md flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300 text-white">
+        <a href="#inicio" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Inicio</a>
+        <a href="#nosotros" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Nosotros</a>
+        <a href="#productos" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Catálogo</a>
+        <a href="#contacto" class="mobile-link text-2xl font-semibold mb-6 hover:text-[#D4AF37] transition-colors">Contáctanos</a>
       </div>
     </header>
 
     <main>
       <!-- =====================================================
-             HERO / PORTADA
+             HERO / PORTADA (TAILWIND - CARRUSEL)
         ====================================================== -->
 
-      <section class="hero" id="inicio">
-        <div class="container hero__container">
-          <div class="hero__content">
-            <span class="hero__subtitle"> BORDADURÍA INTERNACIONAL </span>
-
-            <h1 class="hero__title">J&M</h1>
-
-            <h2 class="hero__name">Julcarima Morales</h2>
-
-            <p class="hero__description">
-              Bordados artesanales de calidad para bandos, guiones, mantos,
-              paños y otros trabajos especiales.
-            </p>
-
-            <div class="hero__buttons">
-              <a href="#productos" class="button button--primary">
-                Explorar catálogo
-              </a>
-
-              <a
-                href="https://wa.me/51954861832"
-                class="button button--whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Consultar por WhatsApp
-              </a>
-            </div>
+      <section id="inicio" class="relative w-full h-screen overflow-hidden bg-black flex items-center">
+        <!-- CARRUSEL DE FONDOS -->
+        <div class="absolute inset-0 z-0">
+          <div id="hero-carousel" class="w-full h-full">
+            <img src="assets/img/portada/portada.jpeg" class="hero-carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out opacity-100" alt="Bordado 1" />
+            <img src="assets/img/bandos/modelo-01/bandoModelo1.jpeg" class="hero-carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out opacity-0" alt="Bordado 2" />
+            <img src="assets/img/guiones/modelo-01/guionModelo1.jpeg" class="hero-carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out opacity-0" alt="Bordado 3" />
+            <img src="assets/img/mantos/mediano/mantoMediano.jpeg" class="hero-carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out opacity-0" alt="Bordado 4" />
           </div>
+          <!-- Overlay Oscuro -->
+          <div class="absolute inset-0 bg-black/40"></div>
+        </div>
 
-          <div class="hero__image">
-            <img
-              src="assets/img/portada/portada.jpeg"
-              alt="Trabajos de bordado J&M"
-            />
+        <!-- CONTENIDO HERO -->
+        <div data-aos="fade-up" class="relative z-10 text-white w-full max-w-7xl mx-auto px-6 md:px-12 mt-16 md:mt-24">
+          <h1 class="font-sans font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-6 max-w-3xl !text-white drop-shadow-lg">
+            Eleva tus<br>tradiciones
+          </h1>
+          <p class="font-sans text-lg md:text-2xl font-medium text-gray-200 mb-10 max-w-2xl leading-snug drop-shadow-md">
+            Nuestros bordados artesanales ofrecen una mezcla perfecta de detalle y calidad.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="pages/bandos.html" class="bg-[#EAEAEA] text-black px-8 py-3.5 rounded-full font-sans font-semibold text-center hover:bg-white transition-colors duration-300 text-sm md:text-base">
+              Ver Bandos
+            </a>
+            <a href="pages/guiones.html" class="bg-[#EAEAEA] text-black px-8 py-3.5 rounded-full font-sans font-semibold text-center hover:bg-white transition-colors duration-300 text-sm md:text-base">
+              Ver Guiones
+            </a>
           </div>
         </div>
       </section>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Lógica del Nav Fijo y Cambio de Color
+          const header = document.getElementById('main-header');
+          
+          // Lógica del Menú Móvil
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const mobileLinks = document.querySelectorAll('.mobile-link');
+          const spans = mobileMenuBtn.querySelectorAll('span');
+          let menuOpen = false;
+
+          function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+              mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+              mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+              spans[0].classList.add('rotate-45', 'translate-y-2');
+              spans[1].classList.add('opacity-0');
+              spans[2].classList.add('-rotate-45', '-translate-y-2');
+            } else {
+              mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+              mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+              spans[0].classList.remove('rotate-45', 'translate-y-2');
+              spans[1].classList.remove('opacity-0');
+              spans[2].classList.remove('-rotate-45', '-translate-y-2');
+            }
+          }
+
+          mobileMenuBtn.addEventListener('click', toggleMenu);
+          mobileLinks.forEach(link => link.addEventListener('click', () => {
+            if (menuOpen) toggleMenu();
+          }));
+          
+          const sections = [
+            { id: 'inicio', theme: 'transparent' },
+            { id: 'productos', theme: 'white' },
+            { id: 'destacados', theme: 'ocean' },
+            { id: 'nosotros', theme: 'white' },
+            { id: 'contacto', theme: 'ocean' }
+          ];
+          
+          const sectionElements = sections.map(s => ({
+            el: document.getElementById(s.id),
+            theme: s.theme
+          }));
+
+          window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            
+            // Si estamos al inicio
+            if (scrollPos < 50) {
+              applyTheme('transparent');
+              return;
+            }
+
+            const headerHeight = header.offsetHeight;
+            // Punto de activación: cuando la parte baja del header toca la sección
+            const triggerPoint = scrollPos + headerHeight + 10; 
+            
+            let currentTheme = 'transparent';
+
+            // Buscar de abajo hacia arriba qué sección está en contacto con el header
+            for (let i = sectionElements.length - 1; i >= 0; i--) {
+              const section = sectionElements[i];
+              if (section.el && section.el.offsetTop <= triggerPoint) {
+                currentTheme = section.theme;
+                break;
+              }
+            }
+            
+            applyTheme(currentTheme);
+          });
+          
+          function applyTheme(theme) {
+            // Limpiar clases de texto
+            header.classList.remove('text-white', 'text-black');
+            
+            // Limpiar fondos y paddings
+            header.classList.remove('bg-transparent', 'bg-white', 'bg-[#0d6175]');
+            header.classList.remove('py-4', 'md:py-5', 'py-2', 'md:py-3', 'shadow-md');
+            
+            if (theme === 'transparent') {
+              header.classList.add('bg-transparent', 'text-white', 'py-4', 'md:py-5');
+            } else if (theme === 'white') {
+              header.classList.add('bg-white', 'text-black', 'shadow-md', 'py-2', 'md:py-3');
+            } else if (theme === 'ocean') {
+              header.classList.add('bg-[#0d6175]', 'text-white', 'shadow-md', 'py-2', 'md:py-3');
+            }
+          }
+
+          // Lógica del carrusel de imágenes
+          const images = document.querySelectorAll('.hero-carousel-img');
+          let currentIndex = 0;
+          
+          if (images.length > 0) {
+            setInterval(() => {
+              images[currentIndex].classList.remove('opacity-100');
+              images[currentIndex].classList.add('opacity-0');
+              
+              currentIndex = (currentIndex + 1) % images.length;
+              
+              images[currentIndex].classList.remove('opacity-0');
+              images[currentIndex].classList.add('opacity-100');
+            }, 5000);
+          }
+        });
+      </script>
 
       <!-- =====================================================
              PRODUCTOS
         ====================================================== -->
 
-      <section class="catalogo" id="productos">
+      <section class="catalogo !bg-[#0d6175] text-white" id="productos">
         <div class="container">
-          <div class="section-header">
-            <span class="section-header__subtitle"> NUESTRO CATÁLOGO </span>
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-header__subtitle !text-[#D4AF37]"> NUESTRO CATÁLOGO </span>
 
-            <h2 class="section-header__title">Productos</h2>
+            <h2 class="section-header__title !text-white">Productos</h2>
 
-            <p class="section-header__description">
+            <p class="section-header__description !text-gray-200">
               Descubre nuestros modelos, medidas y colores disponibles.
             </p>
           </div>
 
           <!-- CATEGORÍAS -->
 
-          <div class="catalogo__grid">
+          <div class="catalogo__grid text-black">
             <!-- BANDOS -->
 
-            <article class="category-card">
+            <article class="category-card" data-aos="fade-up">
               <a href="pages/bandos.html">
                 <div class="category-card__image">
                   <img
@@ -169,7 +315,7 @@
                 </div>
 
                 <div class="category-card__content">
-                  <h3>Bandos</h3>
+                  <h3 class="!text-[#4b245f]">Bandos</h3>
 
                   <p>Modelos, medidas y colores disponibles.</p>
 
@@ -180,7 +326,7 @@
 
             <!-- GUIONES -->
 
-            <article class="category-card">
+            <article class="category-card" data-aos="fade-up">
               <a href="pages/guiones.html">
                 <div class="category-card__image">
                   <img
@@ -192,7 +338,7 @@
                 </div>
 
                 <div class="category-card__content">
-                  <h3>Guiones</h3>
+                  <h3 class="!text-[#4b245f]">Guiones</h3>
 
                   <p>Modelos, medidas y colores disponibles.</p>
 
@@ -203,7 +349,7 @@
 
             <!-- MANTOS -->
 
-            <article class="category-card">
+            <article class="category-card" data-aos="fade-up">
               <a href="pages/mantos.html">
                 <div class="category-card__image">
                   <img
@@ -215,7 +361,7 @@
                 </div>
 
                 <div class="category-card__content">
-                  <h3>Mantos</h3>
+                  <h3 class="!text-[#4b245f]">Mantos</h3>
 
                   <p>Pequeño, mediano y grande.</p>
 
@@ -226,7 +372,7 @@
 
             <!-- PAÑOS -->
 
-            <article class="category-card">
+            <article class="category-card" data-aos="fade-up">
               <a href="pages/panos.html">
                 <div class="category-card__image">
                   <img
@@ -238,7 +384,7 @@
                 </div>
 
                 <div class="category-card__content">
-                  <h3>Paños</h3>
+                  <h3 class="!text-[#4b245f]">Paños</h3>
 
                   <p>Pequeño, mediano y grande.</p>
 
@@ -249,7 +395,7 @@
 
             <!-- OTROS -->
 
-            <article class="category-card">
+            <article class="category-card" data-aos="fade-up">
               <a href="pages/otros.html">
                 <div class="category-card__image">
                   <img
@@ -261,7 +407,7 @@
                 </div>
 
                 <div class="category-card__content">
-                  <h3>Otros</h3>
+                  <h3 class="!text-[#4b245f]">Otros</h3>
 
                   <p>Otros productos y trabajos especiales.</p>
 
@@ -277,41 +423,41 @@
              DESTACADOS
         ====================================================== -->
 
-      <section class="destacados">
+      <section class="destacados !bg-[#eaf4f7]" id="destacados">
         <div class="container">
-          <div class="section-header">
-            <span class="section-header__subtitle"> TRABAJOS DESTACADOS </span>
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-header__subtitle !text-gray-500"> TRABAJOS DESTACADOS </span>
 
-            <h2 class="section-header__title">Nuestros bordados</h2>
+            <h2 class="section-header__title !text-[#0d6175]">Nuestros bordados</h2>
 
-            <p class="section-header__description">
+            <p class="section-header__description !text-gray-700">
               Conoce algunos de nuestros trabajos y acabados artesanales.
             </p>
           </div>
 
           <div class="destacados__grid">
-            <div class="destacado">
+            <div class="destacado" data-aos="fade-up">
               <img
                 src="assets/img/bandos/modelo-01/bandoModelo1.jpeg"
                 alt="Bando bordado J&M"
               />
             </div>
 
-            <div class="destacado">
+            <div class="destacado" data-aos="fade-up">
               <img
                 src="assets/img/guiones/modelo-01/guionModelo1.jpeg"
                 alt="Guion bordado J&M"
               />
             </div>
 
-            <div class="destacado">
+            <div class="destacado" data-aos="fade-up">
               <img
                 src="assets/img/mantos/mediano/mantoMediano.jpeg"
                 alt="Manto bordado J&M"
               />
             </div>
 
-            <div class="destacado">
+            <div class="destacado" data-aos="fade-up">
               <img
                 src="assets/img/panos/mediano/panoMediano.jpeg"
                 alt="Paño bordado J&M"
@@ -325,33 +471,33 @@
              SOBRE NOSOTROS
         ====================================================== -->
 
-      <section class="nosotros" id="nosotros">
+      <section class="nosotros !bg-[#0d6175] text-white" id="nosotros">
         <div class="container nosotros__container">
-          <div class="nosotros__image">
+          <div class="nosotros__image" data-aos="fade-right">
             <img
               src="assets/img/portada/portada.jpeg"
               alt="Bordados artesanales J&M"
             />
           </div>
 
-          <div class="nosotros__content">
-            <span class="section-header__subtitle"> SOBRE NOSOTROS </span>
+          <div class="nosotros__content" data-aos="fade-left">
+            <span class="section-header__subtitle !text-[#D4AF37]"> SOBRE NOSOTROS </span>
 
-            <h2>Bordaduría Internacional J&M</h2>
+            <h2 class="!text-white">Bordaduría Internacional J&M</h2>
 
-            <p>
+            <p class="!text-gray-200">
               Somos una bordaduría dedicada a la elaboración de trabajos
               bordados con atención al detalle y acabados de calidad.
             </p>
 
-            <p>
+            <p class="!text-gray-200">
               Contamos con diferentes modelos, medidas y colores para adaptarnos
               a las necesidades de cada cliente.
             </p>
 
             <a
               href="https://wa.me/51954861832"
-              class="button button--primary"
+              class="button button--primary !bg-[#D4AF37] !text-black hover:!opacity-80"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -365,16 +511,16 @@
              WHATSAPP / CONTACTO
         ====================================================== -->
 
-      <section class="contacto" id="contacto">
+      <section class="contacto !bg-[#112233] text-white" id="contacto" data-aos="fade-up">
         <div class="container contacto__container">
           <div class="contacto__content">
-            <span class="section-header__subtitle">
+            <span class="section-header__subtitle !text-[#D4AF37]">
               ¿TIENES ALGUNA CONSULTA?
             </span>
 
-            <h2>Encuentra el modelo que buscas</h2>
+            <h2 class="!text-white">Encuentra el modelo que buscas</h2>
 
-            <p>
+            <p class="!text-gray-300">
               Consulta nuestros modelos, medidas, colores y disponibilidad
               directamente con nosotros.
             </p>
@@ -396,7 +542,7 @@
          FOOTER
     ====================================================== -->
 
-    <footer class="footer">
+    <footer class="footer !bg-[#0b1622] text-white">
       <div class="container footer__container">
         <!-- INFORMACIÓN -->
 
@@ -404,17 +550,18 @@
           <img
             src="assets/img/logo/logo.jpeg"
             alt="Bordaduría Internacional J&M"
+            class="rounded-full shadow-lg border-2 border-[#D4AF37]"
           />
 
-          <p>Bordaduría Internacional Julcarima Morales.</p>
+          <p class="!text-gray-400">Bordaduría Internacional Julcarima Morales.</p>
         </div>
 
         <!-- ENLACES -->
 
         <div class="footer__links">
-          <h3>Navegación</h3>
+          <h3 class="!text-[#D4AF37]">Navegación</h3>
 
-          <ul>
+          <ul class="!text-gray-300">
             <li>
               <a href="#inicio"> Inicio </a>
             </li>
@@ -472,5 +619,14 @@
     ====================================================== -->
 
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    </script>
   </body>
 </html>
+

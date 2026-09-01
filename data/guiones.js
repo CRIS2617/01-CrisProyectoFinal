@@ -27,7 +27,7 @@ const guiones = {
 
     medidas: {
       "medida-1": {
-        nombre: "Medida 1",
+        nombre: "1 metro",
 
         colores: [
           {
@@ -53,7 +53,7 @@ const guiones = {
       },
 
       "medida-2": {
-        nombre: "Medida 2",
+        nombre: "1.1 metros",
 
         colores: [
           {
@@ -89,7 +89,7 @@ const guiones = {
 
     medidas: {
       "medida-1": {
-        nombre: "Medida 1",
+        nombre: "1 metro",
 
         colores: [
           {
@@ -115,7 +115,7 @@ const guiones = {
       },
 
       "medida-2": {
-        nombre: "Medida 2",
+        nombre: "1.1 metros",
 
         colores: [
           {

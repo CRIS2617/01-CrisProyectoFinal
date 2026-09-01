@@ -24,6 +24,41 @@
    pueda funcionar y luego solamente reemplazamos los datos.
 */
 
+const paletaColores = {
+  Camote: "#911e7f",
+  Morado: "#7E3D92",
+  Barney: "#9D4DCE",
+  Celeste: "#8bebf4",
+  Turquesa: "#00ddf1",
+  "Verde hoja": "#4FAE58",
+  "Verde jade": "#1EA67A",
+  "Verde oscuro": "#1F5C4F",
+  "Verde limon": "#A9D64E",
+  Azulino: "#1a4b90",
+  Rojo: "#D12E39",
+  Fucsia: "#D32477",
+  "Amarillo patito": "#efe33a",
+  "Amarillo oro": "#D9B033",
+  Blanco: "#F4F4F4",
+  Negro: "#1A1A1A",
+  Perla: "#E8E1D7",
+  Guindo: "#5f192f",
+  Vino: "#901f3a",
+};
+
+function generarImagenColor(nombreColor) {
+  const hex = paletaColores[nombreColor] || "#D9D9D9";
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+      <rect width="120" height="120" rx="16" fill="${hex}"/>
+      <rect x="8" y="8" width="104" height="104" rx="12" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg.trim())}`;
+}
+
 const catalogo = {
   /* =====================================================
        BANDOS
@@ -39,34 +74,91 @@ const catalogo = {
 
     modelos: {
       "modelo-1": {
-        nombre: "Modelo 1",
-
+        nombre: "Modelo simple",
         imagen: "../assets/img/bandos/modelo-01/bandoModelo1.jpeg",
-
-        descripcion: "Bando bordado del modelo 1.",
-
+        descripcion: "Bando bordado del modelo simple.",
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/bandos/modelo-1/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/bandos/modelo-1/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/bandos/modelo-1/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/bandos/modelo-1/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-1/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/bandos/modelo-1/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/bandos/modelo-1/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/bandos/modelo-1/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/bandos/modelo-1/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/bandos/modelo-1/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/bandos/modelo-1/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/bandos/modelo-1/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/bandos/modelo-1/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/bandos/modelo-1/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/bandos/modelo-1/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/bandos/modelo-1/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/bandos/modelo-1/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/bandos/modelo-1/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/bandos/modelo-1/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/bandos/modelo-1/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/bandos/modelo-1/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/bandos/modelo-1/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/bandos/modelo-1/verde.webp" },
         ],
       },
+      "modelo-paloma": {
+        nombre: "Modelo paloma",
+        imagen: "../assets/img/bandos/modelo-02/bandoModelo2.jpeg",
+        descripcion: "Bando bordado del modelo paloma.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-2/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/bandos/modelo-2/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/bandos/modelo-2/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/bandos/modelo-2/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/bandos/modelo-2/rojo.webp" }
+        ],
+      },
+      "modelo-pavo-gordo": {
+        nombre: "Modelo pavo gordo",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo pavo gordo.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      },
+      "modelo-pavo-gordo-nuevo": {
+        nombre: "Modelo pavo gordo nuevo",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo pavo gordo nuevo.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      },
+      "modelo-pavo-flaco": {
+        nombre: "Modelo pavo flaco",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo pavo flaco.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      },
+      "modelo-pavo-extra": {
+        nombre: "Modelo pavo extra",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo pavo extra.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      },
+      "modelo-pavo-doble-cola": {
+        nombre: "Modelo pavo doble cola",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo pavo doble cola.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      },
+      "modelo-papagayo": {
+        nombre: "Modelo papagayo",
+        imagen: "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+        descripcion: "Bando bordado del modelo papagayo.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/bandos/modelo-3/rojo.webp" }
+        ],
+      }
     },
   },
 
@@ -83,35 +175,93 @@ const catalogo = {
       "Guiones bordados elaborados con diferentes diseños y colores.",
 
     modelos: {
-      "modelo-1": {
-        nombre: "Modelo 1",
+      "1-metro": {
+        nombre: "1 metro",
 
         imagen: "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
 
-        descripcion: "Guion bordado del modelo 1.",
+        descripcion: "Guion bordado de 1 metro.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/guiones/modelo-1/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/guiones/modelo-1/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/guiones/modelo-1/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/guiones/modelo-1/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
         ],
       },
+      "1.1-metros": {
+        nombre: "1.1 metros",
+
+        imagen: "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+
+        descripcion: "Guion bordado de 1.1 metros.",
+
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+        ],
+      },
+      "1.2-metros": {
+        nombre: "1.2 metros",
+
+        imagen: "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+
+        descripcion: "Guion bordado de 1.2 metros.",
+
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/guiones/modelo-1/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/guiones/modelo-1/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/guiones/modelo-1/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/guiones/modelo-1/verde.webp" },
+        ],
+      }
     },
   },
 
@@ -136,25 +286,25 @@ const catalogo = {
         descripcion: "Manto bordado en tamaño pequeño.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/mantos/pequeno/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/mantos/pequeno/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/mantos/pequeno/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/mantos/pequeno/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/mantos/pequeno/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/mantos/pequeno/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/mantos/pequeno/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/mantos/pequeno/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/mantos/pequeno/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/mantos/pequeno/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/mantos/pequeno/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/mantos/pequeno/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/mantos/pequeno/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/mantos/pequeno/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/mantos/pequeno/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/mantos/pequeno/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/mantos/pequeno/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/mantos/pequeno/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/mantos/pequeno/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/mantos/pequeno/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/mantos/pequeno/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/mantos/pequeno/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/mantos/pequeno/verde.webp" },
         ],
       },
 
@@ -166,25 +316,25 @@ const catalogo = {
         descripcion: "Manto bordado en tamaño mediano.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/mantos/mediano/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/mantos/mediano/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/mantos/mediano/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/mantos/mediano/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/mantos/mediano/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/mantos/mediano/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/mantos/mediano/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/mantos/mediano/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/mantos/mediano/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/mantos/mediano/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/mantos/mediano/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/mantos/mediano/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/mantos/mediano/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/mantos/mediano/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/mantos/mediano/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/mantos/mediano/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/mantos/mediano/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/mantos/mediano/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/mantos/mediano/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/mantos/mediano/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/mantos/mediano/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/mantos/mediano/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/mantos/mediano/verde.webp" },
         ],
       },
 
@@ -196,25 +346,25 @@ const catalogo = {
         descripcion: "Manto bordado en tamaño grande.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/mantos/grande/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/mantos/grande/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/mantos/grande/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/mantos/grande/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/mantos/grande/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/mantos/grande/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/mantos/grande/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/mantos/grande/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/mantos/grande/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/mantos/grande/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/mantos/grande/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/mantos/grande/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/mantos/grande/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/mantos/grande/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/mantos/grande/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/mantos/grande/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/mantos/grande/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/mantos/grande/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/mantos/grande/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/mantos/grande/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/mantos/grande/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/mantos/grande/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/mantos/grande/verde.webp" },
         ],
       },
     },
@@ -241,25 +391,25 @@ const catalogo = {
         descripcion: "Paño bordado en tamaño pequeño.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/panos/pequeno/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/panos/pequeno/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/panos/pequeno/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/panos/pequeno/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/panos/pequeno/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/panos/pequeno/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/panos/pequeno/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/panos/pequeno/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/panos/pequeno/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/panos/pequeno/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/panos/pequeno/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/panos/pequeno/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/panos/pequeno/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/panos/pequeno/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/panos/pequeno/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/panos/pequeno/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/panos/pequeno/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/panos/pequeno/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/panos/pequeno/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/panos/pequeno/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/panos/pequeno/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/panos/pequeno/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/panos/pequeno/verde.webp" },
         ],
       },
 
@@ -271,25 +421,25 @@ const catalogo = {
         descripcion: "Paño bordado en tamaño mediano.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/panos/mediano/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/panos/mediano/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/panos/mediano/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/panos/mediano/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/panos/mediano/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/panos/mediano/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/panos/mediano/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/panos/mediano/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/panos/mediano/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/panos/mediano/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/panos/mediano/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/panos/mediano/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/panos/mediano/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/panos/mediano/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/panos/mediano/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/panos/mediano/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/panos/mediano/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/panos/mediano/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/panos/mediano/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/panos/mediano/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/panos/mediano/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/panos/mediano/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/panos/mediano/verde.webp" },
         ],
       },
 
@@ -301,25 +451,25 @@ const catalogo = {
         descripcion: "Paño bordado en tamaño grande.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/panos/grande/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/panos/grande/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/panos/grande/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/panos/grande/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/panos/grande/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/panos/grande/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/panos/grande/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/panos/grande/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/panos/grande/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/panos/grande/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/panos/grande/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/panos/grande/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/panos/grande/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/panos/grande/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/panos/grande/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/panos/grande/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/panos/grande/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/panos/grande/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/panos/grande/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/panos/grande/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/panos/grande/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/panos/grande/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/panos/grande/verde.webp" },
         ],
       },
     },
@@ -338,62 +488,94 @@ const catalogo = {
 
     modelos: {
       "otros-1": {
-        nombre: "Otros 1",
+        nombre: "Banderines",
 
         imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
 
-        descripcion: "Producto bordado correspondiente a Otros 1.",
+        descripcion: "Producto bordado correspondiente a banderines.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/otros/otros-1/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/otros/otros-1/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/otros/otros-1/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/otros/otros-1/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-1/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/otros/otros-1/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/otros/otros-1/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/otros/otros-1/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/otros/otros-1/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/otros/otros-1/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/otros/otros-1/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/otros/otros-1/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/otros/otros-1/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/otros/otros-1/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/otros/otros-1/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/otros/otros-1/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/otros/otros-1/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/otros/otros-1/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/otros/otros-1/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/otros/otros-1/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/otros/otros-1/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/otros/otros-1/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/otros/otros-1/verde.webp" },
         ],
       },
 
       "otros-2": {
-        nombre: "Otros 2",
+        nombre: "Banderolas",
 
         imagen: "../assets/img/otros/otros-2/banderin2.jpeg",
 
-        descripcion: "Producto bordado correspondiente a Otros 2.",
+        descripcion: "Producto bordado correspondiente a banderolas.",
 
         colores: [
-          {
-            nombre: "Rojo",
-            imagen: "../assets/img/otros/otros-2/rojo.webp",
-          },
-
-          {
-            nombre: "Azul",
-            imagen: "../assets/img/otros/otros-2/azul.webp",
-          },
-
-          {
-            nombre: "Verde",
-            imagen: "../assets/img/otros/otros-2/verde.webp",
-          },
-
-          {
-            nombre: "Dorado",
-            imagen: "../assets/img/otros/otros-2/dorado.webp",
-          },
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-2/rojo.webp" },
+          { nombre: "Morado", imagen: "../assets/img/otros/otros-2/azul.webp" },
+          { nombre: "Barney", imagen: "../assets/img/otros/otros-2/verde.webp" },
+          { nombre: "Celeste", imagen: "../assets/img/otros/otros-2/dorado.webp" },
+          { nombre: "Turquesa", imagen: "../assets/img/otros/otros-2/rojo.webp" },
+          { nombre: "Verde hoja", imagen: "../assets/img/otros/otros-2/azul.webp" },
+          { nombre: "Verde jade", imagen: "../assets/img/otros/otros-2/verde.webp" },
+          { nombre: "Verde oscuro", imagen: "../assets/img/otros/otros-2/dorado.webp" },
+          { nombre: "Verde limon", imagen: "../assets/img/otros/otros-2/rojo.webp" },
+          { nombre: "Azulino", imagen: "../assets/img/otros/otros-2/azul.webp" },
+          { nombre: "Rojo", imagen: "../assets/img/otros/otros-2/verde.webp" },
+          { nombre: "Fucsia", imagen: "../assets/img/otros/otros-2/dorado.webp" },
+          { nombre: "Amarillo patito", imagen: "../assets/img/otros/otros-2/rojo.webp" },
+          { nombre: "Amarillo oro", imagen: "../assets/img/otros/otros-2/azul.webp" },
+          { nombre: "Blanco", imagen: "../assets/img/otros/otros-2/verde.webp" },
+          { nombre: "Negro", imagen: "../assets/img/otros/otros-2/dorado.webp" },
+          { nombre: "Perla", imagen: "../assets/img/otros/otros-2/rojo.webp" },
+          { nombre: "Guindo", imagen: "../assets/img/otros/otros-2/azul.webp" },
+          { nombre: "Vino", imagen: "../assets/img/otros/otros-2/verde.webp" },
+        ],
+      },
+      "gallardetes": {
+        nombre: "Gallardetes",
+        imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
+        descripcion: "Producto bordado correspondiente a gallardetes.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-1/rojo.webp" }
+        ],
+      },
+      "insignias": {
+        nombre: "Insignias",
+        imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
+        descripcion: "Producto bordado correspondiente a insignias.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-1/rojo.webp" }
+        ],
+      },
+      "estandartes": {
+        nombre: "Estandartes",
+        imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
+        descripcion: "Producto bordado correspondiente a estandartes.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-1/rojo.webp" }
+        ],
+      },
+      "ropa-santos": {
+        nombre: "Ropa para santos",
+        imagen: "../assets/img/otros/otros-1/gallardete.jpeg",
+        descripcion: "Producto bordado correspondiente a ropa para santos.",
+        colores: [
+          { nombre: "Camote", imagen: "../assets/img/otros/otros-1/rojo.webp" }
         ],
       },
     },
@@ -402,7 +584,16 @@ const catalogo = {
 
 const rutasImagenesReales = {
   "bandos/modelo-1": "../assets/img/bandos/modelo-01/bandoModelo1.jpeg",
-  "guiones/modelo-1": "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+  "bandos/modelo-paloma": "../assets/img/bandos/modelo-02/bandoModelo2.jpeg",
+  "bandos/modelo-pavo-gordo": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "bandos/modelo-pavo-gordo-nuevo": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "bandos/modelo-pavo-flaco": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "bandos/modelo-pavo-extra": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "bandos/modelo-pavo-doble-cola": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "bandos/modelo-papagayo": "../assets/img/bandos/modelo-03/bandoModelo3.jpeg",
+  "guiones/1-metro": "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+  "guiones/1.1-metros": "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
+  "guiones/1.2-metros": "../assets/img/guiones/modelo-01/guionModelo1.jpeg",
   "mantos/pequeno": "../assets/img/mantos/pequeño/mantoPequeño.jpeg",
   "mantos/mediano": "../assets/img/mantos/mediano/mantoMediano.jpeg",
   "mantos/grande": "../assets/img/mantos/grande/mantoGrande.jpeg",
@@ -411,6 +602,10 @@ const rutasImagenesReales = {
   "panos/grande": "../assets/img/panos/grande/panoGrande.jpeg",
   "otros/otros-1": "../assets/img/otros/otros-1/gallardete.jpeg",
   "otros/otros-2": "../assets/img/otros/otros-2/banderin2.jpeg",
+  "otros/gallardetes": "../assets/img/otros/otros-1/gallardete.jpeg",
+  "otros/insignias": "../assets/img/otros/otros-1/gallardete.jpeg",
+  "otros/estandartes": "../assets/img/otros/otros-1/gallardete.jpeg",
+  "otros/ropa-santos": "../assets/img/otros/otros-1/gallardete.jpeg",
 };
 
 Object.entries(catalogo).forEach(([categoria, datosProducto]) => {
@@ -422,10 +617,14 @@ Object.entries(catalogo).forEach(([categoria, datosProducto]) => {
     }
 
     datosModelo.imagen = ruta;
-    datosModelo.colores = datosModelo.colores.map((color) => ({
-      ...color,
-      imagen: ruta,
+    
+    // Todos los modelos ahora usarán la lista completa de colores
+    const todosLosColores = Object.keys(paletaColores).map(nombreColor => ({
+      nombre: nombreColor,
+      imagen: generarImagenColor(nombreColor)
     }));
+
+    datosModelo.colores = todosLosColores;
   });
 });
 

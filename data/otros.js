@@ -19,11 +19,11 @@
 
 const otros = {
   /* =====================================================
-       OTROS 1
+       BANDERINES
     ===================================================== */
 
   "otros-1": {
-    nombre: "Otros 1",
+    nombre: "Banderines",
 
     colores: [
       {
@@ -49,11 +49,11 @@ const otros = {
   },
 
   /* =====================================================
-       OTROS 2
+       BANDEROLAS
     ===================================================== */
 
   "otros-2": {
-    nombre: "Otros 2",
+    nombre: "Banderolas",
 
     colores: [
       {
@@ -75,6 +75,62 @@ const otros = {
         nombre: "Dorado",
         imagen: "../img/otros/otros-2/dorado.webp",
       },
+    ],
+  },
+
+  /* =====================================================
+       GALLARDETES
+    ===================================================== */
+
+  "gallardetes": {
+    nombre: "Gallardetes",
+    colores: [
+      {
+        nombre: "Rojo",
+        imagen: "../img/otros/otros-1/rojo.webp",
+      }
+    ],
+  },
+
+  /* =====================================================
+       INSIGNIAS
+    ===================================================== */
+
+  "insignias": {
+    nombre: "Insignias",
+    colores: [
+      {
+        nombre: "Rojo",
+        imagen: "../img/otros/otros-1/rojo.webp",
+      }
+    ],
+  },
+
+  /* =====================================================
+       ESTANDARTES
+    ===================================================== */
+
+  "estandartes": {
+    nombre: "Estandartes",
+    colores: [
+      {
+        nombre: "Rojo",
+        imagen: "../img/otros/otros-1/rojo.webp",
+      }
+    ],
+  },
+
+  /* =====================================================
+       ROPA PARA SANTOS
+    ===================================================== */
+
+  "ropa-santos": {
+    nombre: "Ropa para santos",
+    colores: [
+      {
+        nombre: "Rojo",
+        imagen: "../img/otros/otros-1/rojo.webp",
+      }
     ],
   },
 };

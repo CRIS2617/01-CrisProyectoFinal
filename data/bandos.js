@@ -19,7 +19,7 @@
 
 const bandos = {
   "modelo-1": {
-    nombre: "Modelo 1",
+    nombre: "Modelo Simple",
 
     medidas: {
       "medida-1": {
@@ -81,7 +81,7 @@ const bandos = {
     ===================================================== */
 
   "modelo-2": {
-    nombre: "Modelo 2",
+    nombre: "Modelo Paloma",
 
     medidas: {
       "medida-1": {
